@@ -1,23 +1,40 @@
-import { MetaFunction } from '@remix-run/node';
+import { json, LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
 import Header from '~/components/Header';
+import { getPageContent } from '~/models/page.server';
+import { useLoaderData } from '@remix-run/react';
+import { Config, Render } from '@measured/puck';
+import puckConfig from '~/puck.config';
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Puck Editor CMS" },
-  ];
+export const loader = async ({ params }: LoaderFunctionArgs) => {
+  // Get path, and default to slash for root path.
+  const puckPath = params.puckPath || "/";
+  // Get puckData for this path, this could be a database call.
+  const puckData = await getPageContent(puckPath);
+  if (!puckData) {
+    throw new Response(null, {
+      status: 404,
+      statusText: "Not Found",
+    });
+  }
+  // Return the data.
+  return json({ puckData });
 };
 
-export async function loader() {
-  return null;
-}
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const title = data?.puckData?.root?.props?.title || "Page";
+
+  return [{ title }];
+};
 
 export default function Index() {
+  const { puckData } = useLoaderData<typeof loader>();
+
   return (
     <div className="space-y-8">
       <Header />
 
       <main className="w-full max-w-screen-lg mx-auto">
-        <h1>Hello from index</h1>
+        <Render config={puckConfig as Config} data={puckData} />;
       </main>
     </div>
   );
