@@ -1,9 +1,9 @@
 import { Puck, type Data, type Config } from "@measured/puck";
-import type {
+import {
   ActionFunctionArgs,
   LoaderFunctionArgs,
-  MetaFunction,
-} from "@remix-run/node";
+  MetaFunction, redirect,
+} from '@remix-run/node';
 import { json } from "@remix-run/node";
 import { useActionData, useLoaderData, useSubmit } from '@remix-run/react';
 import invariant from "tiny-invariant";
@@ -21,8 +21,7 @@ export const action = async ({ params, request }: ActionFunctionArgs) => {
 
   try {
     await savePageContent(puckPath, JSON.parse(puckData));
-    console.log("Saved data", puckPath);
-    return json({ ok: true });
+    return redirect(puckPath);
   } catch (error) {
     console.error("Error saving data", error);
     return json({ ok: false }, { status: 500 });
@@ -30,7 +29,6 @@ export const action = async ({ params, request }: ActionFunctionArgs) => {
 };
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
-  console.log("Edit loader", params);
   const puckPath = params.puckPath || "/";
   const initialData = await getPageContent(puckPath) || {
     content: [],

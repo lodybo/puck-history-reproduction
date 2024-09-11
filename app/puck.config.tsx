@@ -1,9 +1,7 @@
 import type { Config } from '@measured/puck';
-import { PuckRichText, PuckRichTextProps } from '@tohuhono/puck-rich-text';
 
 type Props = {
   HeadingBlock: { title: string };
-  RichTextBlock: PuckRichTextProps;
 };
 
 export const config: Config<Props> = {
@@ -21,7 +19,6 @@ export const config: Config<Props> = {
         </div>
       ),
     },
-    RichTextBlock: PuckRichText,
   },
 };
 

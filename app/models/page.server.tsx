@@ -6,7 +6,6 @@ export async function getPageContent(slug: string): Promise<Data | undefined> {
     where: { path: slug },
   });
 
-  console.log('getPageContent', slug, page?.data || 'not found');
   return page?.data as Data;
 }
 

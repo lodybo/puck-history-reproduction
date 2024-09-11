@@ -4,6 +4,7 @@ import { getPageContent } from '~/models/page.server';
 import { useLoaderData } from '@remix-run/react';
 import { Config, Render } from '@measured/puck';
 import puckConfig from '~/puck.config';
+import Document from '~/components/Document';
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   // Get path, and default to slash for root path.
@@ -30,12 +31,8 @@ export default function Index() {
   const { puckData } = useLoaderData<typeof loader>();
 
   return (
-    <div className="space-y-8">
-      <Header />
-
-      <main className="w-full max-w-screen-lg mx-auto">
-        <Render config={puckConfig as Config} data={puckData} />;
-      </main>
-    </div>
+    <Document>
+      <Render config={puckConfig as Config} data={puckData} />;
+    </Document>
   );
 }

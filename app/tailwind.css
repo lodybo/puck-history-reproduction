@@ -8,3 +8,9 @@
     --secondary: 35 71 186;
   }
 }
+
+@layer components {
+  .Puck {
+    height: 100%;
+  }
+}
