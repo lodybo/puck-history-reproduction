@@ -32,7 +32,7 @@ export default function EditorHeader({ onPublish }: Props) {
       </ul>
 
       { onPublish ? (
-        <Button disabled={isPublishing} onClick={publish}>
+        <Button variant="primary" disabled={isPublishing} onClick={publish}>
           Opslaan
         </Button>
       ) : null }

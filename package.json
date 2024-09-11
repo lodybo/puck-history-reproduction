@@ -13,7 +13,8 @@
     "docker:stop": "docker-compose down",
     "prisma:migrate": "prisma migrate dev",
     "prisma:generate": "prisma generate",
-    "prisma:seed": "prisma db seed"
+    "prisma:seed": "prisma db seed",
+    "prisma:reset": "prisma migrate reset --force"
   },
   "dependencies": {
     "@measured/puck": "^0.15.0",
@@ -33,6 +34,7 @@
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
     "autoprefixer": "^10.4.19",
+    "classnames": "^2.5.1",
     "eslint": "^8.38.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.28.1",

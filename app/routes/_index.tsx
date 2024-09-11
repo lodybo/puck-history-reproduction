@@ -3,7 +3,7 @@ import Header from '~/components/Header';
 import { getPageContent } from '~/models/page.server';
 import { useLoaderData } from '@remix-run/react';
 import { Config, Render } from '@measured/puck';
-import puckConfig from '~/puck.config';
+import puckConfig from '~/config/puck.config';
 import Document from '~/components/Document';
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {

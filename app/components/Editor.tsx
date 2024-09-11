@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react';
 import { type Config, Puck } from '@measured/puck';
-import puckConfig from '~/puck.config';
+import puckConfig from '~/config/puck.config';
 
 import "@measured/puck/puck.css";
 import Document from '~/components/Document';
