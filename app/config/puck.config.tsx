@@ -8,6 +8,7 @@ import { Logos, LogosProps } from "./blocks/Logos";
 import { Stats, StatsProps } from "./blocks/Stats";
 import { Text, TextProps } from "./blocks/Text";
 import { VerticalSpace, VerticalSpaceProps } from "./blocks/VerticalSpace";
+import { RichTextEditorPlugin, RichTextEditorPluginProps } from '~/config/plugins/RichText';
 
 type Props = {
   ButtonGroup: ButtonGroupProps;
@@ -19,6 +20,7 @@ type Props = {
   Stats: StatsProps;
   Text: TextProps;
   VerticalSpace: VerticalSpaceProps;
+  RichTextEditor: RichTextEditorPluginProps;
 };
 
 export const config: Config<Props> = {
@@ -27,7 +29,7 @@ export const config: Config<Props> = {
       components: ["Columns", "Flex", "VerticalSpace"],
     },
     typography: {
-      components: ["Heading", "Text"],
+      components: ["Heading", "Text", "RichTextEditor"],
     },
     interactive: {
       title: "Actions",
@@ -44,6 +46,7 @@ export const config: Config<Props> = {
     Stats,
     Text,
     VerticalSpace,
+    RichTextEditor: RichTextEditorPlugin
   },
 };
 

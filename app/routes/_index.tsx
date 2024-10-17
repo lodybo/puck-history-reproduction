@@ -1,5 +1,4 @@
 import { json, LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
-import Header from '~/components/Header';
 import { getPageContent } from '~/models/page.server';
 import { useLoaderData } from '@remix-run/react';
 import { Config, Render } from '@measured/puck';
@@ -28,7 +27,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 export default function Index() {
-  const { puckData } = useLoaderData<typeof loader>();
+  const { puckData } = useLoaderData<typeof loader>() as never;
 
   return (
     <Document>

@@ -4,6 +4,7 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
+    "postinstall": "node ./postinstall.js",
     "build": "remix vite:build",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
@@ -17,15 +18,18 @@
     "prisma:reset": "prisma migrate reset --force"
   },
   "dependencies": {
-    "@measured/puck": "^0.15.0",
+    "@measured/puck": "^0.16.1",
     "@prisma/client": "^5.19.1",
     "@remix-run/node": "^2.12.0",
     "@remix-run/react": "^2.12.0",
     "@remix-run/serve": "^2.12.0",
+    "@tinymce/tinymce-react": "^5.1.1",
     "@tohuhono/puck-rich-text": "^0.10.0",
+    "fs-extra": "^11.2.0",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tinymce": "^7.3.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.12.0",

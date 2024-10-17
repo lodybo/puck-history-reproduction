@@ -50,7 +50,7 @@ export default function Button({ children, ...props }: Props) {
     );
   }
 
-  const { href, ...rest } = props as ButtonProps;
+  const { ...rest } = props as ButtonProps;
 
   return (
     <button
