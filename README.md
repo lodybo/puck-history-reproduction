@@ -1,45 +1,21 @@
-# Welcome to Remix!
+# Puck Issue Reproduction
 
-- 📖 [Remix docs](https://remix.run/docs)
+This is a reproduction repo for a ticket I filed with the [Puck](https://github.com/measuredco/puck).
 
-## Development
+## Running the repro
+```shell
+# Install dependencies
+npm install
 
-Run the dev server:
+# Start local database
+npm run docker:start
 
-```shellscript
+# Seed local database
+npm run prisma:seed
+
+# Start the server
 npm run dev
 ```
 
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
-
-# TODO
-- [x] Custom header implementeren voor editor.
-- [x] Components overnemen van demo.
-- [ ] Extra demo "bouwen" met TinyMCE.
+Navigate to [https://localhost:5173/edit](https://localhost:5173/edit), drag the component "RichTextEditor" to the middle of the screen, and then click on the "RichTextEditor" component.
+You can enter some text, and press "Opslaan" ("save"). The page should then throw an error.
