@@ -1,6 +1,6 @@
 # Puck Issue Reproduction
 
-This is a reproduction repo for a ticket I filed with the [Puck](https://github.com/measuredco/puck).
+This is a reproduction repo for a ticket I filed with [Puck](https://github.com/measuredco/puck/issues/658).
 
 ## Running the repro
 ```shell
